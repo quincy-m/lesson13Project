@@ -2,8 +2,8 @@ var employeeManager = {
     newEmployeeTest: function(data) {
     this
     .click('@addEmployee')
-    .click('@newEmployee')
-    .expect.element('@nameEntry').value.to.equal(data.new)
+    .click(data.newNumber)
+    .expect.element('@nameEntry').value.to.equal('New Employee')
     this
     .clearValue('@nameEntry')
     .setValue('@nameEntry', data.name)
@@ -15,7 +15,7 @@ var employeeManager = {
     .setValue('@titleEntry', data.title)
     .click('@saveButton')
     .click('@gillianJacobs')
-    .click('@newEmployee')
+    .click(data.newNumber)
     .expect.element('@nameEntry').value.to.equal(data.name)
     this
     .expect.element('@phoneEntry').value.to.equal(data.phone)
@@ -58,7 +58,9 @@ module.exports = {
         cancelButton: 'button[name="cancel"]',
         deleteButton: 'button[name="delete"]',
         addEmployee: 'li[name="addEmployee"]',
-        newEmployee: 'li[name="employee825"]',
+        newEmployee1: 'li[name="employee825"]',
+        newEmployee2: 'li[name="employee826"]',
+        newEmployee3: 'li[name="employee827"]',
         employeeList: 'ul[class="listContainer"]'
     }
 }

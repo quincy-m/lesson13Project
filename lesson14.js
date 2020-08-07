@@ -1,9 +1,8 @@
-var employeeManager = require('../testAssests/lesson13Assests')
-var searchBarTest = require('../testAssests/lesson13Assests')
+var employeeManager = require('../testAssests/lesson14Assests')
 var employees = {}
 module.exports = {
     beforeEach: browser => {
-        employees = browser.page.lesson13Page()
+        employees = browser.page.lesson14Page()
         employees.navigate()
     },
     after: browser => {
@@ -15,6 +14,7 @@ module.exports = {
         employees.newEmployeeTest(hello)
     })
     },
+
 'Search Bar Test': browser => {
     employees
     .searchBarTest()
