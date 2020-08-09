@@ -7,14 +7,14 @@ module.exports = [
     title: 'King',
     },
     {
-    newNumber: '@newEmployee2',
+    newNumber: '@newEmployee1',
     name: 'Ronald Weasly',
     phone: '1231231234',
     email: 'ronaldrulesweasly@gmail.com',
     title: 'Griffindor Keeper',
     },
     {
-    newNumber: '@newEmployee3',
+    newNumber: '@newEmployee1',
     name: 'Mario & Luigi',
     phone: '0000000000',
     email: 'plumbingbrothers@gmail.com',

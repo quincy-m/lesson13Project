@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "9554ddef-1fe0-4c9c-9278-1be815c338da",
+		"name": "Employee-Manager (Lesson 14)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Employees GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30549eb7-7d3c-45a6-9daa-c94ee82805c2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include('employee_id', 'employee_name', 'employee_phone', 'employee_email', 'employee_title');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peaceful-inlet-88854.herokuapp.com/api/employees",
+					"protocol": "https",
+					"host": [
+						"peaceful-inlet-88854",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"employees"
+					]
+				},
+				"description": "Employee-Manager"
+			},
+			"response": []
+		},
+		{
+			"name": "Employees POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c61a0172-2f3a-49c6-80a9-f44285b4b841",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body is correct\", function () {",
+							"pm.expect(pm.response.text()).to.include(\"'employee_name:', 'Ron Weasly'\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"id\": \"868\",\n\"name\": \"Ron Weasly\",\n\"phone\": \"0987654321\",\n\"email\": \"rweasly@gmail.com\",\n\"title\": \"Griffindor Keeper\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://peaceful-inlet-88854.herokuapp.com/api/employees/",
+					"protocol": "https",
+					"host": [
+						"peaceful-inlet-88854",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"employees",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Ronald Weasly",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "1234567890",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "Ronald@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "Keeper",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employees PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://peaceful-inlet-88854.herokuapp.com/api/employees/868?name=Ronald Weasly&phone=1234567890&email=rweasly@gmail.com&title=Griffindor Keeper",
+					"protocol": "https",
+					"host": [
+						"peaceful-inlet-88854",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"employees",
+						"868"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Ronald Weasly"
+						},
+						{
+							"key": "phone",
+							"value": "1234567890"
+						},
+						{
+							"key": "email",
+							"value": "rweasly@gmail.com"
+						},
+						{
+							"key": "title",
+							"value": "Griffindor Keeper"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employee DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://peaceful-inlet-88854.herokuapp.com/api/employees/868",
+					"protocol": "https",
+					"host": [
+						"peaceful-inlet-88854",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"employees",
+						"868"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -2,8 +2,9 @@ var employeeManager = {
     newEmployeeTest: function(data) {
     this
     .click('@addEmployee')
-    .click(data.newNumber)
     .pause(1000)
+    .waitForElementPresent(data.newNumber)
+    .click(data.newNumber)
     .expect.element('@nameEntry').value.to.equal('New Employee')
     this
     .clearValue('@nameEntry')
@@ -27,6 +28,7 @@ var employeeManager = {
     this
     .click('@deleteButton')
     .api.acceptAlert()
+    return this
 }
 }
 var employeeManager2 = {
@@ -38,6 +40,7 @@ var employeeManager2 = {
     this
     .setValue('@searchBar', 'Allie Brie')
     .expect.element('@employeeList').text.to.contain('Allie Brie')
+    return this
     }
 }
 
@@ -58,10 +61,14 @@ module.exports = {
         saveButton: 'button[name="save"]',
         cancelButton: 'button[name="cancel"]',
         deleteButton: 'button[name="delete"]',
-        addEmployee: 'li[name="addEmployee"]',
-        newEmployee1: 'li[name="employee829"]',
-        newEmployee2: 'li[name="employee830"]',
-        newEmployee3: 'li[name="employee831"]',
+        addEmployee:{
+            selector: '//li[@class="listText"][last()]',
+            locateStrategy: 'xpath'
+        },
+        newEmployee1: {
+            selector: '//li[@class="listText"][last()-1]',
+            locateStrategy: 'xpath'
+        },
         employeeList: 'ul[class="listContainer"]'
     }
 }
