@@ -3,6 +3,7 @@ var employeeManager = {
     this
     .click('@addEmployee')
     .click(data.newNumber)
+    .pause(1000)
     .expect.element('@nameEntry').value.to.equal('New Employee')
     this
     .clearValue('@nameEntry')
@@ -58,9 +59,9 @@ module.exports = {
         cancelButton: 'button[name="cancel"]',
         deleteButton: 'button[name="delete"]',
         addEmployee: 'li[name="addEmployee"]',
-        newEmployee1: 'li[name="employee825"]',
-        newEmployee2: 'li[name="employee826"]',
-        newEmployee3: 'li[name="employee827"]',
+        newEmployee1: 'li[name="employee829"]',
+        newEmployee2: 'li[name="employee830"]',
+        newEmployee3: 'li[name="employee831"]',
         employeeList: 'ul[class="listContainer"]'
     }
 }

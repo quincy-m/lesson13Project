@@ -1,4 +1,4 @@
-var employeeManager = require('../testAssests/lesson14Assests')
+var employeeManager = require('../testAssests/lesson14Assets')
 var employees = {}
 module.exports = {
     beforeEach: browser => {
